@@ -8,12 +8,12 @@ services:
     depends_on:
       - mongo
     environment:
-      MONGO_HOST : "mongo"
+      MONGO_HOST : mongo
   mongo:
     image: mongo
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: "pass"
+      MONGO_INITDB_ROOT_PASSWORD: pass
     ports:
       - "27017:27017"
     volumes:
