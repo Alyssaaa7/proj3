@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-app-deployment
+  labels:
+    app: flask-app
+spec:
+  replicas: 3
+  selector:  ##all the pods matching these labels are grouped in our deployment.
+    matchLabels:
+      app: flask-app
+  template:
+    metadata:
+      labels:
+        app: flask-app
+    spec:
+      containers:
+      - name: flask-app-container
+        image: alyssa7/proj3:proj3_app
+        ports:
+        - containerPort: 5000
+        env:
+          - name: MONGO_HOST
+            value: mongo
