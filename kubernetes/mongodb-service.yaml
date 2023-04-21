@@ -6,8 +6,5 @@ spec:
   selector:
     app: mongodb
   ports:
-    - name: mongodb-port
-      protocol: TCP
+    - name: mongo
       port: 27017
-      targetPort: 27017
-  type: LoadBalancer
