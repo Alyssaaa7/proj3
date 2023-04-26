@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
   - name: flask-app-container
-    image: alyssa7/proj3:proj3_app
+    image: alyssa7/proj3:latest
     ports:
     - containerPort: 5000

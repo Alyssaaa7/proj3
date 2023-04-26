@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: flask-app-container
-        image: alyssa7/proj3:proj3_app  # updated image version
+        image: alyssa7/proj3:latest  # updated image version
         ports:
         - containerPort: 5000
         env:
@@ -28,3 +28,15 @@ spec:
             value: mongo
           - name: MONGO_PORT
             value: '27017'
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 60
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 30
+          periodSeconds: 5
