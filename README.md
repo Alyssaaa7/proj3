@@ -32,10 +32,15 @@ kubectl get pods
 
 part 8:
 kubectl create namespace monitoring
+
 kubectl apply -f clusterRole.yaml
+
 kubectl apply -f config-map.yaml
+
 kubectl apply -f prometheus-deployment.yaml
+
 kubectl get deployments --namespace=monitoring
+
 kubectl get pods --namespace=monitoring
 kubectl port-forward ${podName} 8080:9090 -n monitoring
 # Setup Kube state metrics on Kubernetes
